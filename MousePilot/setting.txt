@@ -1,0 +1,6 @@
+# Change these values; keys accept names such as Left, A, or F6. Reloaded every second.
+MoveStep=10
+LeftKey=Left
+RightKey=Right
+UpKey=Up
+DownKey=Down
