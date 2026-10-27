@@ -1,9 +1,86 @@
-<Window x:Class="MousePilot.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="MousePilot" Height="560" Width="760" MinHeight="520" MinWidth="700" Background="#10151E" Foreground="#EDF2F7" FontFamily="Segoe UI" WindowStartupLocation="CenterScreen">
- <Window.Resources><Style TargetType="TextBox"><Setter Property="Padding" Value="8"/><Setter Property="Background" Value="#1D2633"/><Setter Property="Foreground" Value="#EDF2F7"/><Setter Property="BorderBrush" Value="#364355"/></Style><Style TargetType="Button"><Setter Property="Padding" Value="12,8"/><Setter Property="Background" Value="#2E6BE6"/><Setter Property="Foreground" Value="White"/><Setter Property="BorderThickness" Value="0"/><Setter Property="FontWeight" Value="SemiBold"/></Style></Window.Resources>
- <Grid Margin="26"><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions><StackPanel><TextBlock Text="MousePilot" FontSize="28" FontWeight="Bold"/><TextBlock Text="Background cursor controls and autoclicker" Foreground="#9EACC0" Margin="0,4,0,20"/></StackPanel>
- <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto"><StackPanel>
-  <Border Background="#18212D" CornerRadius="10" Padding="18" Margin="0,0,0,14"><StackPanel><TextBlock Text="Cursor position" FontSize="18" FontWeight="SemiBold"/><TextBlock Text="Set screen coordinates or use the global arrow-key controls." Foreground="#9EACC0" Margin="0,4,0,12"/><WrapPanel VerticalAlignment="Center"><TextBlock Text="X" VerticalAlignment="Center"/><TextBox x:Name="XBox" Width="100" Margin="8,0,16,0"/><TextBlock Text="Y" VerticalAlignment="Center"/><TextBox x:Name="YBox" Width="100" Margin="8,0,16,0"/><Button Content="Move cursor" Click="MoveCursor_Click"/><Button Content="Read current position" Margin="8,0,0,0" Background="#354255" Click="ReadPosition_Click"/></WrapPanel></StackPanel></Border>
-  <Border Background="#18212D" CornerRadius="10" Padding="18" Margin="0,0,0,14"><StackPanel><TextBlock Text="Autoclicker" FontSize="18" FontWeight="SemiBold"/><TextBlock Text="Choose a click type, rate, and screen position. Rate range: 0.1–200 clicks per second." Foreground="#9EACC0" TextWrapping="Wrap" Margin="0,4,0,12"/><WrapPanel VerticalAlignment="Center"><TextBlock Text="Click" VerticalAlignment="Center"/><ComboBox x:Name="ClickTypeBox" Width="115" SelectedIndex="0" Margin="8,0,16,0"><ComboBoxItem Content="Left"/><ComboBoxItem Content="Right"/><ComboBoxItem Content="Middle"/></ComboBox><TextBlock Text="CPS" VerticalAlignment="Center"/><TextBox x:Name="RateBox" Width="82" Text="10" Margin="8,0,16,0"/><TextBlock Text="X" VerticalAlignment="Center"/><TextBox x:Name="ClickXBox" Width="75" Text="0" Margin="8,0,12,0"/><TextBlock Text="Y" VerticalAlignment="Center"/><TextBox x:Name="ClickYBox" Width="75" Text="0" Margin="8,0,16,0"/><Button x:Name="ClickButton" Content="Start clicking" Click="ToggleClicker_Click"/></WrapPanel><CheckBox x:Name="MoveToClickPositionBox" Content="Move cursor to click position before each click" IsChecked="True" Foreground="#B8C5D6" Margin="0,12,0,0"/></StackPanel></Border>
-  <Border Background="#18212D" CornerRadius="10" Padding="18"><StackPanel><TextBlock Text="Background keys" FontSize="18" FontWeight="SemiBold"/><TextBlock Text="Arrow keys move the cursor while MousePilot runs. Change bindings in setting.txt; it is reloaded every second. Alt+F4 always exits." Foreground="#9EACC0" TextWrapping="Wrap" Margin="0,4,0,8"/><TextBlock x:Name="KeybindSummary" Foreground="#61D6A7"/></StackPanel></Border>
- </StackPanel></ScrollViewer><TextBlock Grid.Row="2" x:Name="StatusText" Text="Ready" Foreground="#9EACC0" Margin="0,14,0,0"/></Grid>
+<Window x:Class="MousePilot.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="MousePilot" Height="700" Width="800" MinHeight="520" MinWidth="700" Background="#10151E" Foreground="#EDF2F7" FontFamily="Segoe UI" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Background" Value="#1D2633"/>
+            <Setter Property="Foreground" Value="#EDF2F7"/>
+            <Setter Property="BorderBrush" Value="#364355"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="Background" Value="#2E6BE6"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="26">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+            <TextBlock Text="MousePilot" FontSize="28" FontWeight="Bold"/>
+            <TextBlock Text="Background cursor controls and autoclicker" Foreground="#9EACC0" Margin="0,4,0,20"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <Border Background="#18212D" CornerRadius="10" Padding="18" Margin="0,0,0,14">
+                    <StackPanel>
+                        <TextBlock Text="Cursor position" FontSize="18" FontWeight="SemiBold"/>
+                        <TextBlock Text="Set screen coordinates or use the global arrow-key controls." Foreground="#9EACC0" Margin="0,4,0,12"/>
+                        <WrapPanel VerticalAlignment="Center">
+                            <TextBlock Text="X" VerticalAlignment="Center"/>
+                            <TextBox x:Name="XBox" Width="100" Margin="8,0,16,0"/>
+                            <TextBlock Text="Y" VerticalAlignment="Center"/>
+                            <TextBox x:Name="YBox" Width="100" Margin="8,0,16,0"/>
+                            <Button Content="Move cursor" Click="MoveCursor_Click"/>
+                            <Button Content="Read current position" Margin="8,0,0,0" Background="#354255" Click="ReadPosition_Click"/>
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+
+                <Border Background="#18212D" CornerRadius="10" Padding="18" Margin="0,0,0,14">
+                    <StackPanel>
+                        <TextBlock Text="Autoclicker" FontSize="18" FontWeight="SemiBold"/>
+                        <TextBlock Text="Choose a click type, rate, and screen position. Rate range: 0.1–200 clicks per second." Foreground="#9EACC0" TextWrapping="Wrap" Margin="0,4,0,12"/>
+                        <WrapPanel VerticalAlignment="Center">
+                            <TextBlock Text="Click" VerticalAlignment="Center"/>
+                            <ComboBox x:Name="ClickTypeBox" Width="115" SelectedIndex="0" Margin="8,0,16,0">
+                                <ComboBoxItem Content="Left"/>
+                                <ComboBoxItem Content="Right"/>
+                                <ComboBoxItem Content="Middle"/>
+                            </ComboBox>
+                            <TextBlock Text="CPS" VerticalAlignment="Center"/>
+                            <TextBox x:Name="RateBox" Width="82" Text="10" Margin="8,0,16,0"/>
+                            <TextBlock Text="X" VerticalAlignment="Center"/>
+                            <TextBox x:Name="ClickXBox" Width="75" Text="0" Margin="8,0,12,0"/>
+                            <TextBlock Text="Y" VerticalAlignment="Center"/>
+                            <TextBox x:Name="ClickYBox" Width="75" Text="0" Margin="8,0,16,0"/>
+                            <Button x:Name="ClickButton" Content="Start clicking" Click="ToggleClicker_Click"/>
+                        </WrapPanel>
+                        <CheckBox x:Name="MoveToClickPositionBox" Content="Move cursor to click position before each click" IsChecked="True" Foreground="#B8C5D6" Margin="0,12,0,0"/>
+                    </StackPanel>
+                </Border>
+                <Border Background="#18212D" CornerRadius="10" Padding="18">
+                    <StackPanel>
+                        <TextBlock Text="Background keys" FontSize="18" FontWeight="SemiBold"/>
+                        <TextBlock Text="Arrow keys move the cursor while MousePilot runs. Change bindings in setting.txt; it is reloaded every second. Alt+F4 always exits." Foreground="#9EACC0" TextWrapping="Wrap" Margin="0,4,0,8"/>
+                        <TextBlock x:Name="KeybindSummary" Foreground="#61D6A7"/>
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+        <TextBlock Grid.Row="2" x:Name="StatusText" Text="Ready" Foreground="#9EACC0" Margin="0,14,0,0"/>
+    </Grid>
 </Window>

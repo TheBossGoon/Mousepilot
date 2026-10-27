@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\puham\\Documents\\Codex\\2026-10-23\\make\\outputs\\MousePilot\\MousePilot.csproj": {}
+    "C:\\Users\\Julcsi\\Desktop\\10\\Info\\visual studio\\projektek\\UjabbIktHazi\\Mousepilot\\MousePilot\\MousePilot.csproj": {}
   },
   "projects": {
-    "C:\\Users\\puham\\Documents\\Codex\\2026-10-23\\make\\outputs\\MousePilot\\MousePilot.csproj": {
+    "C:\\Users\\Julcsi\\Desktop\\10\\Info\\visual studio\\projektek\\UjabbIktHazi\\Mousepilot\\MousePilot\\MousePilot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\puham\\Documents\\Codex\\2026-10-23\\make\\outputs\\MousePilot\\MousePilot.csproj",
+        "projectUniqueName": "C:\\Users\\Julcsi\\Desktop\\10\\Info\\visual studio\\projektek\\UjabbIktHazi\\Mousepilot\\MousePilot\\MousePilot.csproj",
         "projectName": "MousePilot",
-        "projectPath": "C:\\Users\\puham\\Documents\\Codex\\2026-10-23\\make\\outputs\\MousePilot\\MousePilot.csproj",
-        "packagesPath": "C:\\Users\\puham\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\puham\\Documents\\Codex\\2026-10-23\\make\\outputs\\MousePilot\\obj\\",
+        "projectPath": "C:\\Users\\Julcsi\\Desktop\\10\\Info\\visual studio\\projektek\\UjabbIktHazi\\Mousepilot\\MousePilot\\MousePilot.csproj",
+        "packagesPath": "C:\\Users\\Julcsi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Julcsi\\Desktop\\10\\Info\\visual studio\\projektek\\UjabbIktHazi\\Mousepilot\\MousePilot\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\puham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Julcsi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -71,7 +71,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.402/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
