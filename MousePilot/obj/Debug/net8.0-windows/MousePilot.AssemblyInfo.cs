@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MousePilot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c42a59874d1d29a022367b64095657b9b0f1aab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b1143a0b8a7dfbdc31472643ca9fcefed512057")]
 [assembly: System.Reflection.AssemblyProductAttribute("MousePilot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MousePilot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
